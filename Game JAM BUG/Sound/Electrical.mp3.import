@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Electrical.mp3-c798e0449f5fcb45c9462a1d4a294a09.mp3str"
+
+[deps]
+
+source_file="res://Sound/Electrical.mp3"
+dest_files=[ "res://.import/Electrical.mp3-c798e0449f5fcb45c9462a1d4a294a09.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

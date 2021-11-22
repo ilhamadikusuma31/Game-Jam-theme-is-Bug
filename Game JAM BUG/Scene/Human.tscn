@@ -1,53 +1,58 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprite/Humain_sprite.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Human.gd" type="Script" id=2]
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 138, 286 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 1 )
 region = Rect2( 138, 0, 138, 286 )
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "Sleep",
 "speed": 2.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 5.67049, 29.8104 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 30.4292, 50.6047 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 10, 35.7503 )
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 30.6182, 97.3736 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 43.9346, 44.516 )
 
 [node name="Human" type="KinematicBody2D"]
+collision_mask = 2
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "Sleep"
 frame = 1
 playing = true
 
-[node name="Area_Tangan" type="Area2D" parent="."]
+[node name="Grab" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Tangan"]
-position = Vector2( -38.338, -0.768425 )
-shape = SubResource( 7 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grab"]
+position = Vector2( 0, -10 )
+shape = SubResource( 4 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area_Tangan"]
-position = Vector2( 38.8866, -0.619778 )
-shape = SubResource( 7 )
+[node name="Skin" type="Area2D" parent="."]
 
-[node name="Area_ Kaki" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skin"]
+position = Vector2( -0.415359, 32.8097 )
+shape = SubResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_ Kaki"]
-position = Vector2( -21.5507, 96.7781 )
-shape = SubResource( 8 )
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Skin"]
+position = Vector2( 1.41422, -18.0312 )
+shape = SubResource( 6 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area_ Kaki"]
-position = Vector2( 22.4781, 96.7781 )
-shape = SubResource( 8 )
+[connection signal="input_event" from="Grab" to="." method="_on_Grab_input_event"]
+[connection signal="body_entered" from="Skin" to="." method="_on_Skin_body_entered"]

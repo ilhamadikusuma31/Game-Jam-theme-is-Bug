@@ -34,15 +34,20 @@ animations = [ {
 "speed": 4.97
 } ]
 
-[node name="Mosquito" type="KinematicBody2D"]
+[node name="Mosquito" type="KinematicBody2D" groups=[
+"mosquito",
+]]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 7 )
 animation = "fly"
-frame = 3
+frame = 2
 speed_scale = 3.0
 playing = true
