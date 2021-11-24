@@ -3,7 +3,7 @@
 
 taking part in a game competition hosted by Game Off 2021 on itch.io. The theme is bug
 
-BUG'M
-M for the Mosquito
-Inspired when I live in a boarding house
+<br>BUG'M<br>
+<br>M for the Mosquito
+<br>Inspired when I live in a boarding house<br>
 the concept of the game is that we as players must be able to repel mosquitoes so that humans are not exposed to mosquitoes
